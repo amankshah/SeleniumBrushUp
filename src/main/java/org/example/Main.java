@@ -109,6 +109,7 @@ public class Main {
                         }
                 */
 
+
         //Sending Text to search box
 
         WebElement searchBox = driver.findElement(By.id("searchInput"));
@@ -126,6 +127,16 @@ public class Main {
                     driver.close();
                     throw new Exception();
                 }
+
+                //fetching Value from Table
+                WebElement tableElement = driver.findElement(By.xpath("//*[@id=\"mw-content-text\"]/div[1]/table[2]"));
+                String tableText = tableElement.getText();
+                System.out.println(tableText);
+                //getting valie of 1st row 1st element of the table
+                String firstRowFirstElement = driver.findElement(By.xpath("//*[@id=\"mw-content-text\"]/div[1]/table[2]/tbody/tr[1]/th[1]")).getText();
+                System.out.println( "First Row First Element : " + firstRowFirstElement );
+
+
 
 
 
