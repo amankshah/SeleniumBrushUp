@@ -3,12 +3,13 @@ package org.example;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Setup ChromeDriver using WebDriverManager
         WebDriverManager.chromedriver().setup();
 
@@ -39,7 +40,38 @@ public class Main {
 
 
 
-        //
+        //Getting title
+        WebElement pageTitle = driver.findElement(By.cssSelector("#www-wikipedia-org > main > div.central-textlogo > h1 > span"));
+
+        String TittleText = pageTitle.getText();
+        String ExpectedText = "Wikipedia";
+
+        if (TittleText.equals(ExpectedText)){
+            System.out.println("Test Passed ✅");
+        }else {
+            System.out.println("Test Failed ❌");
+            driver.close();
+            throw new Exception();
+        }
+
+
+
+        //Clicking on English
+        WebElement englishButton = driver.findElement(By.id("js-link-box-en"));
+        englishButton.click();  //cliking here
+                //Now we need to validate the english was clicked or not
+
+                        WebElement newPageTitle = driver.findElement(By.id("mp-welcome"));
+                         TittleText = newPageTitle.getText();
+                         ExpectedText = "Welcome to Wikipedia,";
+
+                        if (TittleText.equals(ExpectedText)){
+                            System.out.println("Click Test Passed ✅");
+                        }else {
+                            System.out.println("Click Test Failed ❌");
+                            driver.close();
+                            throw new Exception();
+                        }
 
 
 
@@ -48,6 +80,6 @@ public class Main {
 
 
 
-//        driver.quit();
+        driver.quit();
     }
 }
