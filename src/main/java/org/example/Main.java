@@ -122,7 +122,7 @@ public class Main {
                 if (TittleText.equals(ExpectedText)){
                     System.out.println("Search Test Passed ✅");
                 }else {
-                    System.out.println("Search Test Failed ❌");
+                    System.out.println("Search Test Failed ❌ ");
                     driver.close();
                     throw new Exception();
                 }
