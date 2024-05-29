@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.concurrent.TimeUnit;
 
@@ -13,8 +14,26 @@ public class Main {
         // Setup ChromeDriver using WebDriverManager
         WebDriverManager.chromedriver().setup();
 
-        // Create a new instance of the Chrome driver
-        WebDriver driver = new ChromeDriver();
+        Boolean headless = true; //creating variable to run it headless
+
+
+
+        WebDriver driver ;
+
+        if(headless){
+            // Use Chrome Options pass arguments "headless"for headless method
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("headless");
+            options.addArguments("window-size=1200x600");
+            // Create a new instance of the Chrome driver
+             driver = new ChromeDriver(options);
+        }else{
+            driver = new ChromeDriver();
+        }
+
+
+
+
 
         //Set implicit wait
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -83,3 +102,5 @@ public class Main {
         driver.quit();
     }
 }
+
+
