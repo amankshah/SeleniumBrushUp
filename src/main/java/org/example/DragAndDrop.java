@@ -5,10 +5,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 
 import java.util.concurrent.TimeUnit;
 
-public class Actions {
+public class DragAndDrop {
     public static void main(String[] args) {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
@@ -22,7 +23,7 @@ public class Actions {
         WebElement droppable = driver.findElement(By.id("droppable"));
         WebElement draggable = driver.findElement(By.id("draggable"));
 
-        org.openqa.selenium.interactions.Actions dragAndDrop = new org.openqa.selenium.interactions.Actions(driver);
+        Actions dragAndDrop = new Actions(driver);
         dragAndDrop.dragAndDrop(draggable,droppable).build().perform();
 
 
