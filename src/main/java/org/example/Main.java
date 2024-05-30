@@ -148,6 +148,9 @@ public class Main {
 */
 
 
+
+
+/*
         //Waits in Selenium
 
 //        Implicit wait is mentioned above
@@ -179,8 +182,12 @@ public class Main {
         element.click();
         System.out.println("Element clicked!");
 
+//        Implicit Wait: Sets a default wait time for the WebDriver to search for an element before throwing a NoSuchElementException.
 
+//        Explicit Wait: Waits for a specific condition to be met before proceeding with the next step in the code.
 
+//                Fluent Wait: Waits for a specific condition with the ability to define polling frequency and ignore specific exceptions.
+*/
 
 
 
