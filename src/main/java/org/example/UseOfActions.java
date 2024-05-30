@@ -9,7 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 
 import java.util.concurrent.TimeUnit;
 
-public class DragAndDrop {
+public class UseOfActions {
     public static void main(String[] args) {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
@@ -23,16 +23,23 @@ public class DragAndDrop {
         WebElement droppable = driver.findElement(By.id("droppable"));
         WebElement draggable = driver.findElement(By.id("draggable"));
 
-        Actions dragAndDrop = new Actions(driver);
-        dragAndDrop.dragAndDrop(draggable,droppable).build().perform();
+        Actions actions = new Actions(driver);
+        actions.dragAndDrop(draggable,droppable).build().perform();
 
 
         if(driver.findElement(By.cssSelector("#droppable > p")).getText().equals("Dropped!")){
             System.out.println("Dropped ✅");
-            driver.close();
+//            driver.close();
         }else {
             System.out.println("Failed To drop ❌");
         }
+
+
+        // Perform a right-click (context click) on the element
+        actions.contextClick(draggable).perform();
+
+        System.out.println("Right-click performed on the element!");
+
 
 
     }
