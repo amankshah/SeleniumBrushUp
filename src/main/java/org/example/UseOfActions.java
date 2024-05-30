@@ -2,6 +2,7 @@ package org.example;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -41,6 +42,9 @@ public class UseOfActions {
         System.out.println("Right-click performed on the element!");
 
 
+
+        //Sending F7 with Value
+        actions.keyUp(Keys.F7)
 
     }
 }
